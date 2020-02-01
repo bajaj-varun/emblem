@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <title>Spring Boot - Angularjs Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="/js/controller.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+</head>
+<body>
+
+<div class="container" ng-app="app">
+
+    <h3 style="color:blue">REST API Example</h3>
+
+    <div ng-controller="postcontroller">
+        <form class="form-horizontal" name="personForm" ng-submit="submitForm()">
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="firstnameID">FirstName:</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="first_name" id="firstnameID"
+                           placeholder="Enter FirstName" ng-model="first_name"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="lastnameID">LastName:</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="last_name" id="lastnameID"
+                           placeholder="Enter LastName" ng-model="last_name"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="ageID">age:</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="age" id="ageID"
+                           placeholder="Enter Age" ng-model="age"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="favourite_colourID">Favourite Colour:</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="last_name" id="favourite_colourID"
+                           placeholder="Enter Favourite Colour" ng-model="favourite_colour"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="hobbyID">Hobby:</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="last_name" id="hobbyID"
+                           placeholder="Enter Hobby" ng-model="hobby"/>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="col-sm-offset-2 col-sm-10">
+            <p>{{postResultMessage}}</p>
+        </div>
+    </div>
+
+    <div class="col-sm-offset-2 col-sm-10" ng-controller="getcontroller">
+        <button id="btn-id" type="button" class="btn btn-primary" ng-click="getfunction()">Get All Customers</button>
+        <ul>
+            <li ng-repeat="cust in response">{{cust.first_name + " " + cust.last_name}}</li>
+        </ul>
+    </div>
+
+</div>
+</body>
+</html>
