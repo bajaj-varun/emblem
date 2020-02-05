@@ -19,14 +19,15 @@ app.controller('postcontroller', function($scope, $http, $location) {
     $http.post(url, data, config).then(function (response) {
       $scope.postResultMessage = response.data;
     }, function error(response) {
-      $scope.postResultMessage = "Error with status: " +  response.statusText;
+      //$scope.postResultMessage = "Error with status: " +  response.statusText;
+      $scope.postResultMessage = JSON.stringify(response.error);
     });
 
     $scope.first_name = "";
     $scope.last_name = "";
-    $age= "";
-    $favourite_colour= "";
-    $hobby= "";
+    $scope.age= "";
+    $scope.favourite_colour= "";
+    $scope.hobby= "";
   }
 });
 
